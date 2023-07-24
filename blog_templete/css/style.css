@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.font1 {
+  font-family: var(--font1);
+}
+.font2 {
+  font-family: var(--font2);
+}
+.navigation {
+  margin-top: 20px;
+  font-family: var(--font1);
+  /* height: 102px; */
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-left {
+  font-size: 32px;
+  display: flex;
+}
+.nav-left img{
+  border: 2px solid var(--main-bg-color);
+  border-radius: 60px;
+}
+.nav-left img:hover{
+  background-color: black;
+  opacity: 0.6;
+}
+.nav-left ul {
+  display: flex;
+  align-items: center;
+  /* align-items: center; */
+  margin: 0 12px;
+  font-size: 18px;
+}
+.nav-left ul li {
+  list-style: none;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.nav-left ul a:hover {
+  color: var(--main-bg-color);
+  font-weight: bolder;
+}
+.nav-left ul a {
+  text-decoration: none;
+  color: black;
+  font-family: var(--font2);
+}
+.content {
+  height:70vh;
+  display: flex;
+  /* background: rgba(54, 208, 54, 0.229); */
+}
+.content::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background: url(../img/home.jpg);
+  background-size:cover;
+  width: 80vw;
+  border-radius: 12px;
+  height: inherit;
+  opacity: 0.15;
+}
+
+.content-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  padding: 3px 13px;
+}
+.content-right img {
+  height: 180px;
+  border: 2px solid black;
+  border-radius: 40%;
+}
+.content-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  font-family: var(--font2);
+  padding: 20px;
+  z-index: 1;
+}
+
+.content-left p {
+  padding: 20px;
+  /* margin-right: 10px; */
+}
+
+.home-articles {
+  /* height: 450px; */
+  padding: 12px;
+  background-color: rgba(208,231,217,23%)
+}
+.home-article {
+  display: flex;
+  margin: 15px;
+}
+.home-article img {
+  width: 200px;
+}
+.home-article-content {
+  align-self: center;
+  padding: 0 20px;
+}
+.home-article a{
+  text-decoration: none;
+  color: black;
+}
+.home-article a:hover{
+  color:var(--main-bg-color);
+}
+.year-box{
+  /* background-color: red; */
+  /* width: 100px; */
+  /* height: 100px; */
+  position: absolute;
+  right: 200px;
+}
+.year-box div{
+  padding: 0 10px;
+}
+
+.footer {
+  color: rgb(0, 0, 0);
+  height: 40px;
+  background: var(--main-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+/* .home-articles{} */

@@ -1,0 +1,61 @@
+.flex {
+  display: flex;
+}
+
+.text-dec {
+  /* background: #d97676; */
+  list-style: none;
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.justify-space {
+  justify-content: space-between;
+}
+.flex-col{
+    flex-direction: column;
+    display: flex;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.semi-bold {
+  font-weight: 700;
+}
+.font {
+  font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif;
+}
+.font-light{
+    font-weight: 100;
+}
+
+.my-1{
+    margin-top: .3rem;
+    margin-bottom: .2rem;
+}
+.mx-1{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.py-1{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.px-1{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.ptop{
+    padding-top: 2rem;
+}
+.width-100{
+    width: 100vw;
+}

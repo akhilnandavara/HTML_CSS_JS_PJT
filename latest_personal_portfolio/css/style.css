@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Diphylleia&family=Poppins:wght@200;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    /* font-family: 'Diphylleia', serif; */
+    background: rgb(9, 9, 67);
+    color: white;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    background:  rgb(3, 3, 50);
+    align-items: center;
+    height: 5rem;
+}
+.left{
+    font-size: 1.5rem;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+
+}
+ nav ul li{
+    margin: 0 10px;
+    cursor: pointer;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+ul li a:hover{
+    color:  blueviolet;
+    font-size: 0.95rem;
+}
+/* Main content */
+
+.firstSection{
+    display: flex;
+    justify-content: space-around;
+    margin: 20vh 0;
+    align-items: center;
+}
+
+.firstSection > div{
+    width: 30%;
+}
+
+.leftSection{ 
+    /* background: red; */
+    font-size: 2.5rem;
+}
+.leftSection .buttons{
+    padding: 50px 0;
+}
+.leftSection .btn{
+    padding: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background: #090943;
+    border-radius: 41px;
+    border: 2px solid white;
+    margin: 10px;
+    cursor: pointer;
+}
+.leftSection .btn:hover{ color:blueviolet;}
+
+.rightSection img{
+    /* background: red; */
+    width: 80%;
+
+}
+
+.nameColor{
+    color: blueviolet;
+}
+
+#element{
+    color: blueviolet;
+}
+
+main hr{
+    border: 2px solid blueviolet;
+    width: 80vw;
+    margin: auto;
+}
+
+.secondSection{
+    width: 80vw;
+    margin: 50px auto;
+    height: 70vh;
+}
+
+.secondSection h2{
+    font-size: 2rem;
+}
+
+.text-gray{
+    color: gray;
+}
+
+.secondSection .box{
+    background: white;
+    width: 80vw;
+    margin: 50px auto;
+    height: 2px;
+    display: flex;
+}
+
+.secondSection .vertical-line{
+background: white;
+height: 100px;
+width: 2px;
+margin: 0 100px;
+}
+
+.img-top{
+    width: 30px;
+    position: relative;
+    top: -36px;
+    left: -16px;
+}
+
+.vertical-title{
+    position: relative;
+    width: 5vw;
+    top: 55px;
+}
+.vertical-desc{
+    position: relative;
+    width: 185px;
+    top: 70px;
+    font-size: 0.8rem;
+    color: gray;
+}
+footer{
+    background: rgb(16 16 70);
+    /* height: 233px; */
+}
+.footer{
+    display: flex;
+    padding: 23px;
+    justify-content: space-evenly;
+}
+.footer ul{
+    list-style: none;
+}
+.footer >div{
+    width: 15rem;
+}
+footer .footer-rights{
+    text-align: center;
+    color: gray;
+    padding: 12px;
+}
