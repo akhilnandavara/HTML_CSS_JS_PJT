@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <title>TODO LIST</title>
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ToDoList</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <h2 class="text-center">ToDos List</h2>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+      </div>
+      <button  id="add"  class="btn btn-primary">add To List</button>
+      <button  id="clear" onclick="clearStorage()" class="btn btn-primary">Clear a List</button>
+
+      <div class="items my-4">
+        <h2>Your Items</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">SNo</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr>
+              <th scope="row">1</th>
+              <td>aac</td>
+              <td>aa</td>
+              <td><button class="btn btn-sm btn-primary">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function getandUpdate() {
+        title = document.getElementById("title").value;
+        desc = document.getElementById("description").value;
+
+        if (localStorage.getItem("itemJson") === null) {
+          console.log("updating a  null list");
+          itemJsonArr = [];
+          itemJsonArr.push([title, desc]);
+          localStorage.setItem("itemJson", JSON.stringify(itemJsonArr));
+        } else {
+          console.log("updating a list");
+          itemJsonStr = localStorage.getItem("itemJson");
+          itemJsonArr = JSON.parse(itemJsonStr);
+          itemJsonArr.push([title, desc]);
+          localStorage.setItem("itemJson", JSON.stringify(itemJsonArr));
+        }
+        update();
+      }
+      function update() {
+        // popluate a table
+        if (localStorage.getItem("itemJson") === null) {
+         
+          itemJsonArr = [];
+        localStorage.setItem("itemJson", JSON.stringify(itemJsonArr));
+        } else {
+          console.log("updating a list") ;
+          itemJsonStr = localStorage.getItem("itemJson");
+          itemJsonArr = JSON.parse(itemJsonStr);
+                  }
+        let tableBody = document.getElementById("tableBody");
+        let str = "";
+        itemJsonArr.forEach((element, index) => {
+          str += `<tr>
+                <th scope="row">${index + 1}</th>
+                <td>${element[0]}</td>
+                <td>${element[1]}</td>
+                <td><button class="btn btn-sm btn-primary" onclick="onDelete(${index})">Delete</button></td>
+              </tr>`;
+        });
+        tableBody.innerHTML = str;
+        clearbox()
+      }
+
+      function onDelete(itemIndex) {
+        console.log("delete", itemIndex);
+        itemJsonStr = localStorage.getItem("itemJson");
+        itemJsonArr = JSON.parse(itemJsonStr);
+        itemJsonArr.splice(itemIndex, 1);
+        localStorage.setItem("itemJson", JSON.stringify(itemJsonArr));
+        update();
+      }
+      function clearStorage(){
+        let cnf=confirm("Do you really want clear all lists");
+        if(cnf){
+            localStorage.clear();
+            console.log("clearing")
+            update();
+
+        }
+      }
+      function clearbox(){
+        document.getElementById("title").value="";
+        document.getElementById("description").value="";
+      }
+      add = document.getElementById("add");
+      add.addEventListener("click", getandUpdate);
+      update();
+    </script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script> -->
+  </body>
+</html>
